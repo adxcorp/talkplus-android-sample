@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577589722563",
+    "firebase_url": "https://talkplus-c0f2e.firebaseio.com",
+    "project_id": "talkplus-c0f2e",
+    "storage_bucket": "talkplus-c0f2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577589722563:android:af16ff1dbf818207529176",
+        "android_client_info": {
+          "package_name": "io.talkplus.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577589722563-5i6ks6elvgho97gass2oe89m9esjbd22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.talkplus.sample",
+            "certificate_hash": "53c13d0e7e0c85bed0b9d1f4414cc8d7c291d363"
+          }
+        },
+        {
+          "client_id": "577589722563-8sf5tertqsjokindmc1mg51uletk821u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvMxSiXSsNkBubEi5p1l3KSuboxrUEsQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577589722563-8sf5tertqsjokindmc1mg51uletk821u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

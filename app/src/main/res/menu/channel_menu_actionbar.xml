@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu1"
+        android:title="Add Member" />
+    <item
+        android:id="@+id/menu2"
+        android:title="Remove Member" />
+    <item
+        android:id="@+id/menu3"
+        android:title="Ban Member" />
+    <item
+        android:id="@+id/menu4"
+        android:title="Unban member" />
+    <item
+        android:id="@+id/menu5"
+        android:title="Leave" />
+</menu>

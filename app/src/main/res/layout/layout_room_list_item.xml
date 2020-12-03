@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:padding="15dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textAttendees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Attendees" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/textLastMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lastMessage" />
+
+    <TextView
+        android:id="@+id/textLastMessageTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lastMessageTime" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/textUnreadCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="unreadCount" />
+</LinearLayout>
