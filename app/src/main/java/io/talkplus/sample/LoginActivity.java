@@ -60,9 +60,9 @@ public class LoginActivity extends BaseActivity {
 
         showProgressDialog();
 
-        TalkPlus.loginWithAnonymous(userId, userName, null, new TalkPlus.CallbackListener<TPUser>() {
+        TalkPlus.loginWithAnonymous(userId, userName, null, null, new TalkPlus.CallbackListener<TPUser>() {
             @Override
-            public void onSuccess(TPUser user) {
+            public void onSuccess(TPUser tpUser) {
                 dismissProgressDialog();
 
                 showToast("로그인에 성공하였습니다.");
@@ -80,5 +80,4 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
-
 }

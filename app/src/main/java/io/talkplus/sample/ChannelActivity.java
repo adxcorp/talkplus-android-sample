@@ -290,16 +290,7 @@ public class ChannelActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(MyAdapter.MyViewHolder holder, int position) {
             final TPMessage tpMessage = mMessageList.get(position);
-
-            Map<String, TPUser> map = mChannel.getMemberMap();
-
-            TPUser user = map.get(tpMessage.getSenderId());
-            if (user != null) {
-                holder.textSender.setText(user.getUsername());
-            } else {
-                holder.textSender.setText(tpMessage.getSenderName());
-            }
-
+            holder.textSender.setText(tpMessage.getUsername());
             holder.textMessage.setText(tpMessage.getText());
             holder.textMessageTime.setText(CommonUtil.getFormattedTime(tpMessage.getCreatedAt()));
             holder.textUnreadCount.setText(String.format("Unread: %d", mChannel.getMessageUnreadCount(tpMessage)));
