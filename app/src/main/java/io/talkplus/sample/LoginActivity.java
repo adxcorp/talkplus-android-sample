@@ -14,6 +14,10 @@ import io.talkplus.entity.user.TPUser;
 import io.talkplus.sample.base.BaseActivity;
 import io.talkplus.util.CommonUtil;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class LoginActivity extends BaseActivity {
     private EditText mEditTextUserId;
     private EditText mEditTextNickname;
@@ -60,10 +64,11 @@ public class LoginActivity extends BaseActivity {
 
         showProgressDialog();
 
-        TalkPlus.loginWithAnonymous(userId, userName, null, null, new TalkPlus.CallbackListener<TPUser>() {
+        TalkPlus.loginWithAnonymous(userId, userName, "", null, new TalkPlus.CallbackListener<TPUser>() {
             @Override
             public void onSuccess(TPUser tpUser) {
                 dismissProgressDialog();
+                registerFCMToken();
 
                 showToast("로그인에 성공하였습니다.");
 
@@ -77,6 +82,25 @@ public class LoginActivity extends BaseActivity {
                 dismissProgressDialog();
 
                 showToast("로그인에 실패하였습니다.");
+            }
+        });
+    }
+
+    private void registerFCMToken() {
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(Task<String> task) {
+                String fcmToken = task.getResult();
+
+                TalkPlus.registerFCMToken(fcmToken, new TalkPlus.CallbackListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                    }
+
+                    @Override
+                    public void onFailure(int i, Exception e) {
+                    }
+                });
             }
         });
     }

@@ -86,26 +86,58 @@ public class ChannelActivity extends BaseActivity {
 
         TalkPlus.addChannelListener(mChannel.getChannelId(), new TalkPlus.ChannelListener() {
             @Override
-            public void onMemberAdded(TPChannel channel, List<TPUser> users) {
+            public void onMemberAdded(TPChannel tpChannel, List<TPUser> list) {
+            }
+
+            @Override
+            public void onMemberLeft(TPChannel tpChannel, List<TPUser> list) {
 
             }
 
             @Override
-            public void onMemberLeft(TPChannel channel, List<TPUser> users) {
-
-            }
-
-            @Override
-            public void onMessageReceived(TPChannel channel, TPMessage message) {
-                if (TextUtils.equals(channel.getChannelId(), mChannel.getChannelId())) {
-                    addMessageToList(message);
+            public void onMessageReceived(TPChannel tpChannel, TPMessage tpMessage) {
+                if (TextUtils.equals(tpChannel.getChannelId(), mChannel.getChannelId())) {
+                    addMessageToList(tpMessage);
                     markRead();
                 }
             }
 
             @Override
-            public void onChannelChanged(TPChannel channel) {
+            public void onChannelAdded(TPChannel tpChannel) {
+            }
+
+            @Override
+            public void onChannelChanged(TPChannel tpChannel) {
                 // TODO: 채널 변경 처리
+            }
+
+            @Override
+            public void onChannelRemoved(TPChannel tpChannel) {
+
+            }
+
+            @Override
+            public void onPublicMemberAdded(TPChannel tpChannel, List<TPUser> list) {
+
+            }
+
+            @Override
+            public void onPublicMemberLeft(TPChannel tpChannel, List<TPUser> list) {
+
+            }
+
+            @Override
+            public void onPublicChannelAdded(TPChannel tpChannel) {
+
+            }
+
+            @Override
+            public void onPublicChannelChanged(TPChannel tpChannel) {
+
+            }
+
+            @Override
+            public void onPublicChannelRemoved(TPChannel tpChannel) {
             }
         });
     }

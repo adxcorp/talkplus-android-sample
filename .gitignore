@@ -1,0 +1,8 @@
+.gradle
+.idea
+*.iml
+local.properties
+import-summary.txt
+build/
+manifest-merger-release-report.txt
+*.apk
