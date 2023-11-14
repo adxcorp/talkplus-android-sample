@@ -21,6 +21,7 @@ import java.util.Map;
 
 import io.talkplus.TalkPlus;
 import io.talkplus.entity.channel.TPChannel;
+import io.talkplus.entity.channel.TPMember;
 import io.talkplus.entity.channel.TPMessage;
 import io.talkplus.entity.user.TPUser;
 import io.talkplus.sample.base.BaseActivity;
@@ -86,58 +87,66 @@ public class ChannelActivity extends BaseActivity {
 
         TalkPlus.addChannelListener(mChannel.getChannelId(), new TalkPlus.ChannelListener() {
             @Override
-            public void onMemberAdded(TPChannel tpChannel, List<TPUser> list) {
-            }
-
-            @Override
-            public void onMemberLeft(TPChannel tpChannel, List<TPUser> list) {
+            public void onMemberAdded(TPChannel channel, List<TPMember> users) {
 
             }
 
             @Override
-            public void onMessageReceived(TPChannel tpChannel, TPMessage tpMessage) {
-                if (TextUtils.equals(tpChannel.getChannelId(), mChannel.getChannelId())) {
-                    addMessageToList(tpMessage);
+            public void onMemberLeft(TPChannel channel, List<TPMember> users) {
+
+            }
+
+            @Override
+            public void onMessageReceived(TPChannel channel, TPMessage message) {
+                if (TextUtils.equals(channel.getChannelId(), mChannel.getChannelId())) {
+                    addMessageToList(message);
                     markRead();
                 }
             }
 
             @Override
-            public void onChannelAdded(TPChannel tpChannel) {
-            }
-
-            @Override
-            public void onChannelChanged(TPChannel tpChannel) {
-                // TODO: 채널 변경 처리
-            }
-
-            @Override
-            public void onChannelRemoved(TPChannel tpChannel) {
+            public void onMessageDeleted(TPChannel channel, TPMessage message) {
 
             }
 
             @Override
-            public void onPublicMemberAdded(TPChannel tpChannel, List<TPUser> list) {
+            public void onChannelAdded(TPChannel channel) {
 
             }
 
             @Override
-            public void onPublicMemberLeft(TPChannel tpChannel, List<TPUser> list) {
+            public void onChannelChanged(TPChannel channel) {
 
             }
 
             @Override
-            public void onPublicChannelAdded(TPChannel tpChannel) {
+            public void onChannelRemoved(TPChannel channel) {
 
             }
 
             @Override
-            public void onPublicChannelChanged(TPChannel tpChannel) {
+            public void onPublicMemberAdded(TPChannel channel, List<TPMember> users) {
 
             }
 
             @Override
-            public void onPublicChannelRemoved(TPChannel tpChannel) {
+            public void onPublicMemberLeft(TPChannel channel, List<TPMember> users) {
+
+            }
+
+            @Override
+            public void onPublicChannelAdded(TPChannel channel) {
+
+            }
+
+            @Override
+            public void onPublicChannelChanged(TPChannel channel) {
+
+            }
+
+            @Override
+            public void onPublicChannelRemoved(TPChannel channel) {
+
             }
         });
     }
@@ -274,7 +283,13 @@ public class ChannelActivity extends BaseActivity {
             if (!TextUtils.isEmpty(message)) {
                 mEditTextMessage.setText("");
 
-                TalkPlus.sendMessage(mChannel, message, TPMessage.TYPE_TEXT, null, new TalkPlus.CallbackListener<TPMessage>() {
+                TalkPlus.sendMessage(mChannel,
+                        message,
+                        TPMessage.TYPE_TEXT,
+                        null,
+                        null,
+                        null,
+                        new TalkPlus.CallbackListener<TPMessage>() {
                     @Override
                     public void onSuccess(TPMessage tpMessage) {
                         Logger.log("sendMessage onSuccess");

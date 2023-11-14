@@ -95,7 +95,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void createPrivateChannel(List<String> userIds) {
-        TalkPlus.createChannel(userIds, null, true, 20, false, TPChannel.TYPE_PRIVATE, null, null, null, null, new TalkPlus.CallbackListener<TPChannel>() {
+        TalkPlus.createChannel(userIds,
+                null,
+                true,
+                20,
+                false,
+                TPChannel.TYPE_PRIVATE,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                new TalkPlus.CallbackListener<TPChannel>() {
             @Override
             public void onSuccess(TPChannel tpChannel) {
                 Logger.log("createChannel onSuccess " + tpChannel);
@@ -111,7 +123,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void createPublicChannel(List<String> userIds) {
-        TalkPlus.createChannel(userIds, null, true, 20, false, TPChannel.TYPE_PUBLIC, null, null, null, null, new TalkPlus.CallbackListener<TPChannel>() {
+        TalkPlus.createChannel(userIds,
+                null,
+                true,
+                20,
+                false,
+                TPChannel.TYPE_PUBLIC,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                new TalkPlus.CallbackListener<TPChannel>() {
             @Override
             public void onSuccess(TPChannel tpChannel) {
                 Logger.log("createChannel onSuccess " + tpChannel);
@@ -127,7 +151,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void createInvitationCodeChannel(List<String> userIds) {
-        TalkPlus.createChannel(userIds, null, true, 20, false, TPChannel.TYPE_INVITATION_ONLY, null, "invitationCode", null, null, new TalkPlus.CallbackListener<TPChannel>() {
+        TalkPlus.createChannel(userIds,
+                null,
+                true,
+                20,
+                false,
+                TPChannel.TYPE_INVITATION_ONLY,
+                null,
+                "invitationCode",
+                null,
+                null,
+                null,
+                null,
+                new TalkPlus.CallbackListener<TPChannel>() {
             @Override
             public void onSuccess(TPChannel tpChannel) {
                 Logger.log("createChannel onSuccess " + tpChannel);
